@@ -9,25 +9,32 @@ export const routes: Routes = [
     path: "",
     component: DefaultLayoutComponent,
     data: {
-      title: "Home"
+      title: "Home",
     },
     children: [
       {
         path: "sample",
         loadChildren: () =>
-          import("./module/sample/sample.module").then(m => m.SampleModule)
+          import("./module/sample/sample.module").then((m) => m.SampleModule),
       },
       {
         path: "user-application",
         loadChildren: () =>
-          import("./module/user/user.module").then(m => m.UserModule)
-      }
-    ]
-  }
+          import("./module/user/user.module").then((m) => m.UserModule),
+      },
+      {
+        path: "vessel-management",
+        loadChildren: () =>
+          import("./module/vessel-management/vessel-management.module").then(
+            (m) => m.VesselManagementModule
+          ),
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
