@@ -71,6 +71,7 @@ export class AddComponent implements OnInit {
       this.alertMsg = false;
       return;
     }
+
     this.alertMsg = true;
 
     this.dataService.add(data).subscribe(console.log);

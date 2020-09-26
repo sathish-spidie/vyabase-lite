@@ -6,14 +6,12 @@ import { Injectable } from "@angular/core";
 
 import { Observable } from "rxjs/Observable";
 
-import { VesselManagementConstant } from "./vessel-management-constant";
-import { VesselManagement } from "./vessel-management.model";
 import { HttpClient } from "@angular/common/http";
-import { map, mapTo, catchError } from "rxjs/operator";
+import { map, mapTo, catchError } from "rxjs/operators";
 
 @Injectable()
 export class DataService {
-  public vesselUrl = `/api/vessel`;
+  public vesselUrl = `http:localhost:5000/api/vessel`;
 
   constructor(private restClient: HttpClient) {}
 
@@ -47,7 +45,7 @@ export class DataService {
   public getById(id: any): Observable<any | boolean> {
     return this.restClient.get(`${this.vesselUrl}/${id}`).pipe(
       map((value: any) => {
-        return value.doc.docs[0];
+        return value;
       }),
       catchError((error: any) => {
         return error;
@@ -58,7 +56,7 @@ export class DataService {
   public getAll(): Observable<any | boolean> {
     return this.restClient.get(`${this.vesselUrl}`).pipe(
       map((value: any) => {
-        return value.doc.docs[0];
+        return value;
       }),
       catchError((error: any) => {
         return error;
