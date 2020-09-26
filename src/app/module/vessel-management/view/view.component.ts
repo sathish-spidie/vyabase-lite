@@ -60,7 +60,8 @@ export class ViewComponent implements OnInit {
 
   getDocumentDetailsById(id: any) {
     this.dataService.getById(id).subscribe((data: any) => {
-      this.showView(data);
+      const viewData = data.doc.docs[0];
+      this.showView(viewData);
     });
   }
 

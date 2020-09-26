@@ -50,7 +50,7 @@ export class ListComponent implements OnInit {
 
   getAllDocumentDetails() {
     this.dataService.getAll().subscribe((result: any) => {
-      this.vesselManagementData = result;
+      this.vesselManagementData = result.response.rows.map((val:any)=>val.doc)
     });
   }
 

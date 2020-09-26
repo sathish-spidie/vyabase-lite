@@ -71,8 +71,8 @@ export class EditComponent implements OnInit {
 
   getDocumentFormEditById(id: string) {
     this.dataService.getById(id).subscribe((data: any) => {
-      this.vesselManagement = data;
-      this.updateEditView(data);
+      this.vesselManagement = data.doc.docs[0];
+      this.updateEditView(this.vesselManagement);
     });
   }
 

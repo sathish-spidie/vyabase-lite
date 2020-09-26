@@ -11,7 +11,7 @@ import { map, mapTo, catchError } from "rxjs/operators";
 
 @Injectable()
 export class DataService {
-  public vesselUrl = `http:localhost:5000/api/vessel`;
+  public vesselUrl = `http://localhost:5000/api/vessel`;
 
   constructor(private restClient: HttpClient) {}
 
